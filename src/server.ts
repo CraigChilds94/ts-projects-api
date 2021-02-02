@@ -6,8 +6,10 @@ const port = process.env.PORT
 
 app.get('/projects', projects.list)
 
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`)
-})
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+        console.log(`Example app listening at http://localhost:${port}`)
+    })
+}
 
 export default app
